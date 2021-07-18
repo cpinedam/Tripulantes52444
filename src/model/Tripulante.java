@@ -1,18 +1,17 @@
 package Tripulante.src.model;
-
 public class Tripulante {
     /**________________________________
      * Atributos
-     __________________________________*/
-    private String nombre;
+    __________________________________*/
+    private String name;
     private int id;
     private double nota1;
     private double nota2;
     private double nota3;
     private String email;
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
     public int getId() {
         return id;
@@ -32,8 +31,8 @@ public class Tripulante {
     public void setId(int id) {
         this.id = id;
     }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
     public void setNota1(double nota1) {
         this.nota1 = nota1;
@@ -47,8 +46,9 @@ public class Tripulante {
     public void setEmail(String email) {
         this.email = email;
     }
+
     public double getAverage(){
-        return(nota1 + nota2 + nota3) /3
+        return(nota1 + nota2 + nota3) /3;
     }
     public double getHighNote() {
         if (nota1 >= nota2 && nota1 >= nota3) {
@@ -76,8 +76,10 @@ public class Tripulante {
         if (getAverage()>=3) {
             return true;
         }
-            else {
+        else {
             return false;
         }
     }
+    
+
 }
