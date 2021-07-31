@@ -1,14 +1,36 @@
-package Tripulante.src.model;
+package model;
+
+import java.util.ArrayList;
+
 public class Tripulante {
     /**________________________________
      * Atributos
     __________________________________*/
+    //definicion de constante:
+    public final static double NOTA_MAXIMA = 5.0; 
+    //variables
     private String name;
     private int id;
     private double nota1;
     private double nota2;
     private double nota3;
     private String email;
+    // Listas
+    private ArrayList <Curso> cursos;
+
+    public Tripulante (){
+        super();
+    }
+
+    public Tripulante(String tName, Integer tId, double tNota1, double tNota2, double tNota3, String tEmail){
+        super();
+        this.name =  tName;
+        this.id = tId;
+        this.nota1 = tNota1;
+        this.nota2 =  tNota2;
+        this.nota3 =  tNota3;
+        cursos = new ArrayList<>();
+    }
 
     public String getName() {
         return name;
@@ -35,13 +57,28 @@ public class Tripulante {
         this.name = name;
     }
     public void setNota1(double nota1) {
-        this.nota1 = nota1;
+        if (nota1 <= NOTA_MAXIMA){
+            this.nota1= nota1;
+        }
+        else{
+            System.out.println("La nota debe ser menor o igual a "+ NOTA_MAXIMA);
+        }
     }
     public void setNota2(double nota2) {
-        this.nota2 = nota2;
+        if (nota2 <= NOTA_MAXIMA){
+            this.nota2 = nota2;
+        }
+        else{
+            System.out.println("La nota debe ser menor o igual a "+ NOTA_MAXIMA);
+        }
     }
     public void setNota3(double nota3) {
-        this.nota3 = nota3;
+        if (nota3 <= NOTA_MAXIMA){
+            this.nota3 = nota3;
+        }
+        else{
+            System.out.println("La nota debe ser menor o igual a "+ NOTA_MAXIMA);
+        }
     }
     public void setEmail(String email) {
         this.email = email;
@@ -80,6 +117,9 @@ public class Tripulante {
             return false;
         }
     }
-    
+    public String adicionarCurso(Curso c){
+        cursos.add(c);
+        return "Curso adicionado " + c + " para el tripulante " + name ;
+    }
 
 }

@@ -1,26 +1,39 @@
 package view;
 
-import jdk.internal.org.jline.terminal.Curso;
 import model.Curso;
 import model.Formador;
+import model.Tripulante;
 
-public class Vista {
-   public static void main(String[] args) {
-        Curso cursoFrances = new Curso(52441, "Frances_101", 'N',07400,"Pedro Perez");
-        Curso cursoItaliano = new Curso(52443, "Italiano_103", 'T',05000,"Putin");
-        System.out.println(cursoFrances.getCode());
-        System.out.println(cursoFrances.getName());
-        System.out.println(cursoFrances.getJourney());
-        System.out.println(cursoItaliano.getCode());
-        System.out.println(cursoItaliano.getName());
-        System.out.println(cursoItaliano.getJourney());
-        cursoFrances.setName("NewFrances");
-        System.out.println(cursoFrances.getName());
-        System.out.println(cursoItaliano.getName());
-        System.out.println(cursoFrances.getFormador().getName());
-        System.out.println(cursoFrances.getFormador().getCode());
-        Formador teacher= new Formador("Carlitos", 98664);
-        System.out.println(teacher.getName());
-        
-   } 
+import javax.swing.JFrame;
+
+import controller.CursoController;
+
+import java.awt.BorderLayout;
+
+public class Vista extends JFrame{
+
+   private PanelOpciones panelOpc;
+
+   private CursoController cursoController;
+
+   public Vista() {
+      super();
+      setSize(600,400);
+      setTitle("Tripulantes");
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      setLayout(new BorderLayout());
+   
+      cursoController = new CursoController();
+   
+      panelOpc = new PanelOpciones(this);
+
+      add(panelOpc, BorderLayout.SOUTH);
+   }
+
+   public void addCurso(int pCode, String pName, char pJourney) {
+      cursoController.addCurso(pCode, pName, pJourney);   
+   }
+   public String listCursos() {
+      return cursoController.listCursos();
+   }
 }
