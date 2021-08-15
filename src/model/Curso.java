@@ -71,7 +71,6 @@ public class Curso {
     }
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
         return "Nombre: "+ name + ", Codigo: "+ code;
     }
     

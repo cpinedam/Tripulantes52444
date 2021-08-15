@@ -68,7 +68,6 @@ public class PanelOpciones extends JPanel implements ActionListener{
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
         if(e.getActionCommand().equals(OPCION_1)){
             listCursos();
         } else if(e.getActionCommand().equals(BTN_ADD_CURSO)){

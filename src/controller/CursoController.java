@@ -24,9 +24,15 @@ public class CursoController {
         String lista ="";
         for (Curso curso : cursos) {
             lista += curso + "\n"; //Salto de linea
-
         }
         return lista;
-
+    }
+    public String[] listCursosData() {
+        String[] listData = new  String[cursos.size()];
+        for (int i = 0; i < listData.length; i++) {
+            listData[i] = cursos.get(i).toString();
+            
+        }
+        return listData;
     }
 }
